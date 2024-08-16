@@ -1,0 +1,219 @@
+/* General Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgb(236, 213, 232) 0%,
+    rgb(50, 112, 118) 100%
+  );
+  background-size: cover;
+  background-attachment: fixed;
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+}
+
+/* Gallery Container */
+.gallery {
+  width: 100%;
+  max-width: 1000px; /* Ensures the gallery doesn't exceed 1000px */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in the element's width */
+}
+
+/* Gallery Items Container */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  position: relative;
+  overflow: hidden; /* Prevent items from overflowing the container */
+}
+
+/* Individual Gallery Items */
+.gallery-item {
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Ensure items take up full width available */
+  max-width: 330px; /* Restrict maximum width */
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Gallery Item Variants */
+.gallery-item-1 {
+  left: 10%;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+.gallery-item-2,
+.gallery-item-4 {
+  height: 250px;
+  max-width: 380px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.gallery-item-2 {
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-3 {
+  box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.35);
+  height: 300px;
+  max-width: 430px;
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.gallery-item-4 {
+  left: 70%;
+  transform: translateX(-50%);
+}
+
+.gallery-item-5 {
+  left: 90%;
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+/* Gallery Controls */
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.gallery-controls button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  margin: 0 50px;
+  padding: 0;
+}
+
+.gallery-controls button:focus {
+  outline: none;
+}
+
+.gallery-controls-previous::before,
+.gallery-controls-next::before {
+  content: "";
+  border: solid #000;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 10px;
+  transition: all 0.15s ease-in-out;
+}
+
+.gallery-controls-previous::before {
+  transform: rotate(135deg);
+}
+
+.gallery-controls-next::before {
+  transform: rotate(-45deg);
+}
+
+.gallery-controls-previous:hover::before,
+.gallery-controls-next:hover::before {
+  padding: 12px;
+}
+
+/* Gallery Navigation */
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+}
+
+.gallery-nav li {
+  background: #ccc;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+}
+
+.gallery-nav li.gallery-item-selected {
+  background: #555;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  .gallery-container {
+    height: 300px;
+  }
+
+  .gallery-item {
+    height: 150px;
+    max-width: 250px;
+  }
+
+  .gallery-item-2,
+  .gallery-item-4 {
+    height: 180px;
+    max-width: 280px;
+  }
+
+  .gallery-item-3 {
+    height: 200px;
+    max-width: 300px;
+  }
+
+  .gallery-controls button {
+    font-size: 24px;
+    margin: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gallery-container {
+    height: 250px;
+  }
+
+  .gallery-item {
+    height: 120px;
+    max-width: 200px;
+  }
+
+  .gallery-item-2,
+  .gallery-item-4 {
+    height: 140px;
+    max-width: 220px;
+  }
+
+  .gallery-item-3 {
+    height: 160px;
+    max-width: 240px;
+  }
+
+  .gallery-controls button {
+    font-size: 20px;
+    margin: 0 15px;
+  }
+
+  .gallery-nav li {
+    width: 6px;
+    height: 6px;
+  }
+}
